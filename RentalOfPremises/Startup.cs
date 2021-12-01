@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RentalOfPremises.Data.Services;
+using RentalOfPremises.Data.Services.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,9 @@ namespace RentalOfPremises
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddTransient<IPremisesService, PremisesService>();
+            services.AddTransient<IPremisesCategoryService, PremisesCategoryService>();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

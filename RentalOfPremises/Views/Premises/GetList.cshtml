@@ -1,0 +1,13 @@
+﻿
+    <h1>All rooms</h1>
+    <h3>@Model.currCategory</h3>
+    @{
+        foreach (var premises in Model.AllPremises)
+        {
+        <div>
+            <h2>Type: @premises.Name</h2>
+            <p>Price: @premises.Price.ToString("c")</p>
+        </div>
+        }
+    }
+
