@@ -1,13 +1,17 @@
 ﻿
     <h1>All rooms</h1>
     <h3>@Model.currCategory</h3>
+    <div class=" row mt-5 mb-2">
     @{
         foreach (var premises in Model.AllPremises)
         {
-        <div>
-            <h2>Type: @premises.Name</h2>
-            <p>Price: @premises.Price.ToString("c")</p>
+        <div class="col-lg-4">
+            <img class="img-thumbnail" src ="@premises.Img" alt="@premises.Name"/>
+            <h2>@premises.Name</h2>
+            <p>@premises.ShortDescription</p>
+            <p><a class=" btn btn-warning" href ="#">Detail</p>
         </div>
         }
     }
+    </div>
 
