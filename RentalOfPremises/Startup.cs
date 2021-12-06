@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RentalOfPremises.Data.Repository;
 using RentalOfPremises.Data.Services;
 using RentalOfPremises.Data.Services.Abstractions;
 using System;
@@ -16,6 +18,11 @@ namespace RentalOfPremises
 {
     public class Startup
     {
+        private IConfigurationRoot _confString;
+        public Startup(IWebHostEnvironment hostEnv)
+        {
+            _confString = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("dbsettings.json").Build();
+        }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,8 +33,9 @@ namespace RentalOfPremises
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IPremisesService, PremisesService>();
-            services.AddTransient<IPremisesCategoryService, PremisesCategoryService>();
+            services.AddDbContext<Data.AppContext>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IPremisesService, PremisesRepository>();
+            services.AddTransient<ICategoryService, CategoryRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 

@@ -11,9 +11,9 @@ namespace RentalOfPremises.Controllers
     public class PremisesController : Controller
     {
         private readonly IPremisesService _premisesService;
-        private readonly IPremisesCategoryService _premisesCategoryService;
+        private readonly ICategoryService _premisesCategoryService;
 
-        public PremisesController(IPremisesService allPremises, IPremisesCategoryService allCategories)
+        public PremisesController(IPremisesService allPremises, ICategoryService allCategories)
         {
             _premisesService = allPremises;
             _premisesCategoryService = allCategories;

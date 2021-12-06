@@ -9,7 +9,7 @@ namespace RentalOfPremises.Data.Services.Abstractions
     public interface IPremisesService
     {
         IEnumerable<Premises> Premises { get; }
-        IEnumerable<Premises> GetBestOffer { get; set; }
+        IEnumerable<Premises> GetBestOffer { get;}
         Premises getObjectPremises(int premisesId);
     }
 }

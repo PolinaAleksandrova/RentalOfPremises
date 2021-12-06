@@ -9,7 +9,7 @@ namespace RentalOfPremises.Data.Services
 {
     public class PremisesService : IPremisesService
     {
-        private readonly IPremisesCategoryService _premisesCategoryService = new PremisesCategoryService();
+        private readonly ICategoryService _premisesCategoryService = new CategoryService();
         public IEnumerable<Premises> Premises
         {
             get

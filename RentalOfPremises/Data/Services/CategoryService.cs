@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RentalOfPremises.Data.Services
 {
-    public class PremisesCategoryService : IPremisesCategoryService
+    public class CategoryService : ICategoryService
     {
         public IEnumerable<Category> AllCategories
         {

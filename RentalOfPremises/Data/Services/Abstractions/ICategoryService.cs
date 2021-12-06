@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RentalOfPremises.Data.Services.Abstractions
 {
-    public interface IPremisesCategoryService
+    public interface ICategoryService
     {
         IEnumerable<Category> AllCategories { get; }
     }
