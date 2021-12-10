@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RentalOfPremises.Data;
 using RentalOfPremises.Data.Repository;
 using RentalOfPremises.Data.Services;
 using RentalOfPremises.Data.Services.Abstractions;
@@ -46,6 +47,12 @@ namespace RentalOfPremises
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                Data.AppContext context = scope.ServiceProvider.GetRequiredService<Data.AppContext>();
+                DBObjects.Initial(context);
+            }
         }
     }
 }
