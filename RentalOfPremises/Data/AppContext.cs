@@ -17,5 +17,6 @@ namespace RentalOfPremises.Data
 
         public DbSet<Premises> Premises { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<CartItem> CartItem { get; set; }
     }
 }
