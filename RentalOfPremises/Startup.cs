@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RentalOfPremises.Data;
+using RentalOfPremises.Data.Models;
 using RentalOfPremises.Data.Repository;
 using RentalOfPremises.Data.Services;
 using RentalOfPremises.Data.Services.Abstractions;
@@ -38,6 +39,13 @@ namespace RentalOfPremises
             services.AddTransient<IPremisesService, PremisesRepository>();
             services.AddTransient<ICategoryService, CategoryRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => Cart.GetCart(sp));
+            services.AddMemoryCache();
+            services.AddMvc();
+            services.AddSession();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +54,7 @@ namespace RentalOfPremises
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
 
             using (var scope = app.ApplicationServices.CreateScope())
