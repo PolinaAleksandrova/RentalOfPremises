@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RentalOfPremises.Data.Services.Abstractions
 {
-    interface IOrderService
+    public interface IOrderService
     {
         void CreateOrder(Order order);
     }
