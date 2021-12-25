@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RentalOfPremises.Data.Models;
 using RentalOfPremises.Data.Services.Abstractions;
 using RentalOfPremises.ViewModels;
 using System;
@@ -19,14 +20,42 @@ namespace RentalOfPremises.Controllers
             _premisesCategoryService = allCategories;
         }
 
-        public ViewResult GetList()
+        [Route("Premises/GetList")]
+        [Route("Premises/GetList/{category}")]
+        public ViewResult GetList(string category)
         {
-            ViewBag.Title = "Page of premises";
-            PremisesListViewModel obj = new PremisesListViewModel();
-            obj.AllPremises = _premisesService.Premises;
-            obj.currCategory = "Premises";
+            string _category = category;
+            IEnumerable<Premises> premises = null;
+            string currCategory = "";
+            if (string.IsNullOrEmpty(category))
+            {
+                premises = _premisesService.Premises.OrderBy(i => i.Id);
+            }
+            else
+            {
+                if (string.Equals("Office", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("Office")).OrderBy(i => i.Id); ;
 
-            return View(obj);
+                    currCategory = "Office";
+                }
+                else if(string.Equals("RecordingStudio", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("Recording studio")).OrderBy(i => i.Id); ;
+                    currCategory = "Recording studio";
+                }
+
+            }
+
+            var premisesObj = new PremisesListViewModel
+            {
+                AllPremises = premises,
+                currCategory = currCategory
+            };
+
+            ViewBag.Title = "Page of premises";
+
+            return View(premisesObj);
         }
     }
 }
