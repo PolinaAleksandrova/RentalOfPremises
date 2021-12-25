@@ -55,8 +55,12 @@ namespace RentalOfPremises
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
-
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "categoryFilter", template: "Premises/{action}/{category?}", defaults: new { Controller = "Premises", action = "GetList" });
+            });
             using (var scope = app.ApplicationServices.CreateScope())
             {
                 Data.AppContext context = scope.ServiceProvider.GetRequiredService<Data.AppContext>();
