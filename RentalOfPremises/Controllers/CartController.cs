@@ -23,7 +23,7 @@ namespace RentalOfPremises.Controllers
 
         public ViewResult Index()
         {
-            var items = _cart.getItems();
+            var items = _cart.getCartItems();
             _cart.ListCartItem = items;
 
             var obj = new CartViewModel

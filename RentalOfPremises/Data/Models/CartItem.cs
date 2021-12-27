@@ -9,7 +9,7 @@ namespace RentalOfPremises.Data.Models
     {
         public int Id { get; set; }
         public Premises Premises { get; set; }
-        public int Price { get; set; }
+        public uint Price { get; set; }
 
         public string CartId { get; set; }
     }

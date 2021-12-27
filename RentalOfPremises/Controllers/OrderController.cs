@@ -23,5 +23,27 @@ namespace RentalOfPremises.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Checkout(Order order)
+        {
+            cart.ListCartItem = cart.getCartItems();
+            if(cart.ListCartItem.Count ==  0)
+            {
+                ModelState.AddModelError("", "Выберите понравившиеся варианты");
+            }
+            if(ModelState.IsValid)
+            {
+                orderService.CreateOrder(order);
+                return RedirectToAction("Complete");
+            }
+            return View(order);
+        }
+
+        public IActionResult Complete()
+        {
+            ViewBag.Message = "Заявка успешно обработана";
+            return View();
+        }
     }
 }

@@ -25,18 +25,20 @@ namespace RentalOfPremises.Data.Models
             session.SetString("CartId", cartId);
             return new Cart(context) { CartId = cartId };
         }
+        
         public void AddToCart(Premises premises)
         {
             appContext.CartItem.Add(new CartItem
             { 
                 CartId = CartId,
                 Premises = premises,
-                Price = (int)premises.Price
+                Price = premises.Price
             });
 
             appContext.SaveChanges();
         }
-        public List<CartItem> getItems()
+       
+        public List<CartItem> getCartItems()
         {
             return appContext.CartItem.Where(c => c.CartId == CartId).Include(s => s.Premises).ToList();
         }
