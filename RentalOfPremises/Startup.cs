@@ -38,6 +38,7 @@ namespace RentalOfPremises
             services.AddDbContext<Data.AppContext>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             services.AddTransient<IPremisesService, PremisesRepository>();
             services.AddTransient<ICategoryService, CategoryRepository>();
+            services.AddTransient<IOrderService, OrderRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
