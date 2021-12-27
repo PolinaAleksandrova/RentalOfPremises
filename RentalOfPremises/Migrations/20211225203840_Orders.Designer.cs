@@ -9,7 +9,7 @@ using RentalOfPremises.Data;
 
 namespace RentalOfPremises.Migrations
 {
-    [DbContext(typeof(AppContext))]
+    [DbContext(typeof(System.AppContext))]
     [Migration("20211225203840_Orders")]
     partial class Orders
     {

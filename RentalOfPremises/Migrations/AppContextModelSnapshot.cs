@@ -8,7 +8,7 @@ using RentalOfPremises.Data;
 
 namespace RentalOfPremises.Migrations
 {
-    [DbContext(typeof(AppContext))]
+    [DbContext(typeof(System.AppContext))]
     partial class AppContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
