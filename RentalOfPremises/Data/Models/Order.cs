@@ -13,7 +13,7 @@ namespace RentalOfPremises.Data.Models
         public int Id { get; set; }
         [Display(Name = "Введите имя")]
         [StringLength(25)]
-        [Required(ErrorMessage ="Длина имени не менее 5 символов")]
+        [Required(ErrorMessage = "Длина имени не менее 5 символов")]
         public string FirstName { get; set; }
         [Display(Name = "Фамилия")]
         [StringLength(25)]

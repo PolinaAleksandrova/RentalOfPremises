@@ -32,7 +32,7 @@ namespace RentalOfPremises.Data.Models
             { 
                 CartId = CartId,
                 Premises = premises,
-                Price = premises.Price
+                Price = (int)premises.Price
             });
 
             appContext.SaveChanges();
@@ -40,6 +40,7 @@ namespace RentalOfPremises.Data.Models
        
         public List<CartItem> getCartItems()
         {
+
             return appContext.CartItem.Where(c => c.CartId == CartId).Include(s => s.Premises).ToList();
         }
     }
