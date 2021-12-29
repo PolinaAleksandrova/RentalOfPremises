@@ -1,11 +1,12 @@
 ﻿@using RentalOfPremises.Data.Models
+
 <h1>All rooms</h1>
 <h3>@Model.currCategory</h3>
 <div class=" row mt-5 mb-2">
     @{
         foreach (Premises premises in Model.AllPremises)
         {
-            @Html.Partial("AllPremises", premises)
+            @await Html.PartialAsync("AllPremises", premises)
         }
     }
 </div>

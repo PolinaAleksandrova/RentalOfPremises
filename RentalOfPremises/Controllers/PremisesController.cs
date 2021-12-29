@@ -39,7 +39,7 @@ namespace RentalOfPremises.Controllers
 
                     currCategory = "Office";
                 }
-                else if(string.Equals("RecordingStudio", category, StringComparison.OrdinalIgnoreCase))
+                else if(string.Equals("recordingStudio", category, StringComparison.OrdinalIgnoreCase))
                 {
                     premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("RecordingStudio")).OrderBy(i => i.Id); ;
                     currCategory = "RecordingStudio";

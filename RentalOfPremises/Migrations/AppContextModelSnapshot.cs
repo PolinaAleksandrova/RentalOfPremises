@@ -8,7 +8,7 @@ using RentalOfPremises.Data;
 
 namespace RentalOfPremises.Migrations
 {
-    [DbContext(typeof(System.AppContext))]
+    [DbContext(typeof(Data.AppContext))]
     partial class AppContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -32,8 +32,8 @@ namespace RentalOfPremises.Migrations
                     b.Property<int?>("PremisesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<long>("Price")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 

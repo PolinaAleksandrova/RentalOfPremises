@@ -10,7 +10,7 @@ using RentalOfPremises.Data;
 namespace RentalOfPremises.Migrations
 {
     [DbContext(typeof(Data.AppContext))]
-    [Migration("20211225203840_Orders")]
+    [Migration("20211229193426_Orders")]
     partial class Orders
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,29 +20,6 @@ namespace RentalOfPremises.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("RentalOfPremises.Data.Models.CartItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CartId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PremisesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PremisesId");
-
-                    b.ToTable("CartItem");
-                });
 
             modelBuilder.Entity("RentalOfPremises.Data.Models.Category", b =>
                 {
@@ -150,15 +127,6 @@ namespace RentalOfPremises.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Premises");
-                });
-
-            modelBuilder.Entity("RentalOfPremises.Data.Models.CartItem", b =>
-                {
-                    b.HasOne("RentalOfPremises.Data.Models.Premises", "Premises")
-                        .WithMany()
-                        .HasForeignKey("PremisesId");
-
-                    b.Navigation("Premises");
                 });
 
             modelBuilder.Entity("RentalOfPremises.Data.Models.OrderDetail", b =>
