@@ -21,7 +21,7 @@ namespace RentalOfPremises.Data.Repository
         {
             order.orderTime = DateTime.Now;
             appContext.Order.Add(order);
-
+            appContext.SaveChanges();
             var items = cart.ListCartItem;
 
             foreach (var el in items)

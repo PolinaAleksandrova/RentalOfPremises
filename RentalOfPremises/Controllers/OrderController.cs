@@ -28,11 +28,11 @@ namespace RentalOfPremises.Controllers
         public IActionResult Checkout(Order order)
         {
             cart.ListCartItem = cart.getCartItems();
-            if(cart.ListCartItem.Count ==  0)
+            if (cart.ListCartItem.Count == 0)
             {
                 ModelState.AddModelError("", "Выберите понравившиеся варианты");
             }
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 orderService.CreateOrder(order);
                 return RedirectToAction("Complete");
