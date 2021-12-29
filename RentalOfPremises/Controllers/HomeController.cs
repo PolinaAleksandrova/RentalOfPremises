@@ -10,7 +10,7 @@ namespace RentalOfPremises.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPremisesService _premisesService;
+        private IPremisesService _premisesService;
 
         public HomeController(IPremisesService allPremises)
         {
