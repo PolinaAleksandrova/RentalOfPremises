@@ -16,7 +16,7 @@ namespace RentalOfPremises.Data.Services
                 return new List<Category>
                 {
                     new Category { Name = "Office", Description = "Room for clerks"},
-                    new Category { Name = "Recording studio", Description = "Room for audio production"}
+                    new Category { Name = "RecordingStudio", Description = "Room for audio production"}
                 };
             }
         }

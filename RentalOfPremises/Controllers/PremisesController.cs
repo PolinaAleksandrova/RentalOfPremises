@@ -33,7 +33,7 @@ namespace RentalOfPremises.Controllers
             }
             else
             {
-                if (string.Equals("Office", category, StringComparison.OrdinalIgnoreCase))
+                if (string.Equals("office", category, StringComparison.OrdinalIgnoreCase))
                 {
                     premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("Office")).OrderBy(i => i.Id); ;
 
@@ -41,8 +41,8 @@ namespace RentalOfPremises.Controllers
                 }
                 else if(string.Equals("RecordingStudio", category, StringComparison.OrdinalIgnoreCase))
                 {
-                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("Recording studio")).OrderBy(i => i.Id); ;
-                    currCategory = "Recording studio";
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("RecordingStudio")).OrderBy(i => i.Id); ;
+                    currCategory = "RecordingStudio";
                 }
 
             }
