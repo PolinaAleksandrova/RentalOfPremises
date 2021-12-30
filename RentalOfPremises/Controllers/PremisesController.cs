@@ -84,6 +84,46 @@ namespace RentalOfPremises.Controllers
                     premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("Industrial")).OrderBy(i => i.Id); ;
                     currCategory = "Industrial";
                 }
+                else if (string.Equals("OneRoom", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("OneRoom")).OrderBy(i => i.Id); ;
+                    currCategory = "OneRoom";
+                }
+                else if (string.Equals("TwoRoom", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("TwoRoom")).OrderBy(i => i.Id); ;
+                    currCategory = "TwoRoom";
+                }
+                else if (string.Equals("ThreeRoom", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("ThreeRoom")).OrderBy(i => i.Id); ;
+                    currCategory = "ThreeRoom";
+                }
+                else if (string.Equals("FourRoom", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("FourRoom")).OrderBy(i => i.Id); ;
+                    currCategory = "FourRoom";
+                }
+                else if (string.Equals("ExpensiveFirst", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("ExpensiveFirst")).OrderBy(i => i.Id); ;
+                    currCategory = "ExpensiveFirst";
+                }
+                else if (string.Equals("CheaperFirst", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("CheaperFirst")).OrderBy(i => i.Id); ;
+                    currCategory = "CheaperFirst";
+                }
+                else if (string.Equals("WithProfessionalEquipment", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("WithProfessionalEquipment")).OrderBy(i => i.Id); ;
+                    currCategory = "WithProfessionalEquipment";
+                }
+                else if (string.Equals("WithoutProfEquipment", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    premises = _premisesService.Premises.Where(i => i.Category.Name.Equals("WithoutProfEquipment")).OrderBy(i => i.Id); ;
+                    currCategory = "WithoutProfEquipment";
+                }
             }
 
             var premisesObj = new PremisesListViewModel
