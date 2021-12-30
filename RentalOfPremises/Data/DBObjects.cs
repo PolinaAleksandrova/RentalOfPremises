@@ -94,7 +94,15 @@ namespace RentalOfPremises.Data
                         new Category { Name = "Kholodnogorsky", Description = "District7"},
                         new Category { Name = "Moskovsky", Description = "District8"},
                         new Category { Name = "Novobavarsky", Description = "District9"},
-                        new Category { Name = "Industrial", Description = "District10"}
+                        new Category { Name = "Industrial", Description = "District10"},
+                        new Category { Name = "OneRoom", Description = "1Room"},
+                        new Category { Name = "TwoRoom", Description = "2Room"},
+                        new Category { Name = "ThreeRoom", Description = "3Room"},
+                        new Category { Name = "FourRoom", Description = "4Room"},
+                        new Category { Name = "ExpensiveFirst", Description = "ExpFirst"},
+                        new Category { Name = "CheaperFirst", Description = "CheapFirst"},
+                        new Category { Name = "WithProfessionalEquipment", Description = "WithProfessionalEquipment"},
+                        new Category { Name = "WithoutProfEquipment", Description = "WithoutProfEquipment"}
                     };
                     category = new Dictionary<string, Category>();
                     foreach (Category el in list)
