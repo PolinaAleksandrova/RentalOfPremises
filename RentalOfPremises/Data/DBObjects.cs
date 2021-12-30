@@ -70,7 +70,7 @@ namespace RentalOfPremises.Data
                         Price = 3443,
                         IsBestOffer = true,
                         IsAvailable = true,
-                        Category = Categories["RecordingStudio"]
+                        Category = Categories["Shevchenkovsky"]
                     }
                 );
             }
@@ -86,7 +86,15 @@ namespace RentalOfPremises.Data
                     var list = new Category[]
                     {
                         new Category { Name = "Office", Description = "Room for clerks"},
-                        new Category { Name = "RecordingStudio", Description = "Room for audio production"}
+                        new Category { Name = "RecordingStudio", Description = "Room for audio production"},
+                        new Category { Name = "Shevchenkovsky", Description = "District3"},
+                        new Category { Name = "Kyevsky", Description = "District4"},
+                        new Category { Name = "Slobodskoy", Description = "District5"},
+                        new Category { Name = "Osnovyansky", Description = "District6"},
+                        new Category { Name = "Kholodnogorsky", Description = "District7"},
+                        new Category { Name = "Moskovsky", Description = "District8"},
+                        new Category { Name = "Novobavarsky", Description = "District9"},
+                        new Category { Name = "Industrial", Description = "District10"}
                     };
                     category = new Dictionary<string, Category>();
                     foreach (Category el in list)
