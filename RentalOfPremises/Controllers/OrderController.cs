@@ -30,7 +30,7 @@ namespace RentalOfPremises.Controllers
             cart.ListCartItem = cart.getCartItems();
             if (cart.ListCartItem.Count == 0)
             {
-                ModelState.AddModelError("", "Выберите понравившиеся варианты");
+                ModelState.AddModelError("", "Виберіть варіанти, що сподобалися");
             }
             if (ModelState.IsValid)
             {
@@ -42,7 +42,7 @@ namespace RentalOfPremises.Controllers
 
         public IActionResult Complete()
         {
-            ViewBag.Message = "Заявка успешно обработана";
+            ViewBag.Message = "Заявка успішно оброблена";
             return View();
         }
     }
