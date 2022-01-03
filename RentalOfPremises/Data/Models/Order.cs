@@ -11,23 +11,23 @@ namespace RentalOfPremises.Data.Models
     {
         [BindNever]
         public int Id { get; set; }
-        [Display(Name = "Введите имя")]
+        [Display(Name = "Введіть ім'я:")]
         [StringLength(25)]
-        [Required(ErrorMessage = "Длина имени не менее 5 символов")]
+        [Required(ErrorMessage = "Довжина імені не менше ніж 5 символів")]
         public string FirstName { get; set; }
-        [Display(Name = "Фамилия")]
+        [Display(Name = "Введіть прізвище:")]
         [StringLength(25)]
-        [Required(ErrorMessage = "Длина фамилии не менее 5 символов")]
+        [Required(ErrorMessage = "Довжина прізвища не менше ніж 5 символів")]
         public string LastName { get; set; }
-        [Display(Name = "Почта")]
+        [Display(Name = "Введіть адресу електронної пошти:")]
         [DataType(DataType.EmailAddress)]
         [StringLength(35)]
-        [Required(ErrorMessage = "Длина почты не менее 15 символов")]
+        [Required(ErrorMessage = "Довжина адреси не менше ніж 15 символів")]
         public string Email { get; set; }
-        [Display(Name = "Телефон")]
+        [Display(Name = "Введіть номер мобільного телефону:")]
         [DataType(DataType.PhoneNumber)]
         [StringLength(20)]
-        [Required(ErrorMessage = "Длина телефона не менее 10 символов")]
+        [Required(ErrorMessage = "Довжина номеру не менше ніж 10 цифр")]
         public string Phone { get; set; }
         [BindNever]
         [ScaffoldColumn(false)]

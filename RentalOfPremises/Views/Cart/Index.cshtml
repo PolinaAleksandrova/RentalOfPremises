@@ -3,8 +3,8 @@
     @foreach (var el in Model.Cart.ListCartItem)
     {
         <div class="alert alert-warning mt-3">
-            <b>Помещение:</b>@el.Premises.Name<br />
-            <b>Цена:</b>@el.Premises.Price.ToString("c")
+            <b>Приміщення: </b>@el.Premises.Name<br />
+            <b>Ціна: </b>@el.Premises.Price.ToString("c")
         </div>
     }
     <hr />
