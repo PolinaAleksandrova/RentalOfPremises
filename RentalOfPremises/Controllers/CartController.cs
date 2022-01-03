@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RentalOfPremises.Data.Models;
-
 using RentalOfPremises.Data.Services.Abstractions;
 using RentalOfPremises.ViewModels;
 using System;
